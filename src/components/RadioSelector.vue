@@ -1,6 +1,6 @@
 <template>
   <div class="radio-selector">
-    <label v-for="{name, colorCode} in colors" :key="colorCode" :for="name">
+    <label v-for="{name, colorCode} in items" :key="colorCode" :for="name">
       <input type="radio" :name="radioName" :value="name" v-model="setected" @change="emitChecked" />
       <span v-if="name === 'red2'">Red (Bred)</span>
       <span v-else>{{name}}</span>
@@ -11,7 +11,7 @@
 <script>
 export default {
   name: "RadioSelector",
-  props: ["colors", "radioName"],
+  props: ["items", "radioName"],
   data: function() {
     return {
       setected: ""
