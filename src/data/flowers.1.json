@@ -1,0 +1,302 @@
+{
+  "flowers": {
+    "cosmos": {
+      "flowerId": "1",
+      "colors": ["red", "yellow", "orange", "white", "black"]
+    },
+    "lily": {
+      "flowerId": 2,
+      "colors": ["red", "yellow", "orange", "white", "black"]
+    },
+    "hyacinth": {
+      "flowerId": 3,
+      "colors": ["red", "yellow", "orange", "blue", "purple"]
+    },
+    "pansy": {
+      "flowerId": "4",
+      "colors": ["red", "yellow", "orange", "white", "blue", "purple", "red2"]
+    },
+    "tulip": {
+      "flowerId": "5",
+      "colors": ["red", "yellow", "orange", "white", "black", "red2"]
+    },
+    "windflower": {
+      "flowerId": "6",
+      "colors": ["red", "orange", "white", "blue", "pink", "pink2", "purple"]
+    },
+    "mum": {
+      "flowerId": "7",
+      "colors": [
+        "red",
+        "white",
+        "purple",
+        "purple2",
+        "yellow2",
+        "yellow",
+        "green",
+        "pink"
+      ]
+    },
+    "rose": {
+      "flowerId": "8",
+      "colors": [
+        "pink",
+        "red",
+        "white",
+        "orange",
+        "yellow",
+        "black",
+        "purple",
+        "gold",
+        "red2",
+        "blue"
+      ]
+    }
+  },
+  "outcome": {
+    "cosmos": {
+      "flowerId": "1",
+      "colors": ["red", "yellow", "orange", "white", "black"],
+      "outcome": [
+        {
+          "flowerId": "1",
+          "id": "cosmos1",
+          "outcome": ["black"],
+          "flowers": ["orange", "orange"]
+        },
+        {
+          "flowerId": "1",
+          "id": "cosmos2",
+          "outcome": ["pink"],
+          "flowers": ["white", "red"]
+        },
+        {
+          "flowerId": "1",
+          "id": "cosmos3",
+          "outcome": ["orange"],
+          "flowers": ["yellow", "red"]
+        }
+      ]
+    },
+    "lily": [
+      {
+        "flowerId": "2",
+        "id": "lily1",
+        "outcome": ["orange"],
+        "flowers": ["red", "yellow"]
+      },
+      {
+        "flowerId": "2",
+        "id": "lily2",
+        "outcome": ["pink"],
+        "flowers": ["white", "red"]
+      },
+      {
+        "flowerId": "2",
+        "id": "lily3",
+        "outcome": ["black"],
+        "flowers": ["red", "red"]
+      }
+    ],
+    "hyacinth": {
+      "flowerId": 2,
+      "colors": ["red", "yellow", "orange", "white", "black"],
+      "outcome": [
+        {
+          "flowerId": "3",
+          "id": "hyacinth1",
+          "outcome": ["orange"],
+          "flowers": ["red", "yellow"]
+        },
+        {
+          "flowerId": "3",
+          "id": "hyacinth2",
+          "outcome": ["pink"],
+          "flowers": ["white", "red"]
+        },
+        {
+          "flowerId": "3",
+          "id": "hyacinth3",
+          "outcome": ["blue"],
+          "flowers": ["white", "white"]
+        },
+        {
+          "flowerId": "3",
+          "id": "hyacinth4",
+          "outcome": ["purple"],
+          "flowers": ["orange", "orange"]
+        }
+      ]
+    },
+    "pansy": [
+      {
+        "flowerId": "4",
+        "id": "pansy1",
+        "outcome": ["orange"],
+        "flowers": ["red", "yellow"]
+      },
+      {
+        "flowerId": "4",
+        "id": "pansy2",
+        "outcome": ["blue"],
+        "flowers": ["white", "white"]
+      },
+      {
+        "flowerId": "4",
+        "id": "pansy3",
+        "outcome": ["red (bred)"],
+        "flowers": ["red", "blue"]
+      },
+      {
+        "flowerId": "4",
+        "id": "pansy4",
+        "outcome": ["purple"],
+        "flowers": ["red2", "red2"]
+      }
+    ],
+    "tulip": [
+      {
+        "flowerId": "5",
+        "id": "tulip1",
+        "outcome": ["orange"],
+        "flowers": ["red", "yellow"]
+      },
+      {
+        "flowerId": "5",
+        "id": "tulip2",
+        "outcome": ["pink"],
+        "flowers": ["red", "white"]
+      },
+      {
+        "flowerId": "5",
+        "id": "tulip3",
+        "outcome": ["black"],
+        "flowers": ["red", "red"]
+      },
+      {
+        "flowerId": "5",
+        "id": "tulip4",
+        "outcome": ["purple"],
+        "flowers": ["orange", "orange"]
+      }
+    ],
+    "windflower": [
+      {
+        "flowerId": "6",
+        "id": "windflower1",
+        "outcome": ["blue"],
+        "flowers": ["white", "white"]
+      },
+      {
+        "flowerId": "6",
+        "id": "windflower2",
+        "outcome": ["pink"],
+        "flowers": ["red", "orange"]
+      },
+      {
+        "flowerId": "6",
+        "id": "windflower3",
+        "outcome": ["pink (bred)"],
+        "flowers": ["blue", "pink"]
+      },
+      {
+        "flowerId": "6",
+        "id": "windflower4",
+        "outcome": ["purple"],
+        "flowers": ["pink2", "pink2"]
+      }
+    ],
+    "mum": [
+      {
+        "flowerId": "7",
+        "id": "mum1",
+        "outcome": ["pink"],
+        "flowers": ["red", "white"]
+      },
+      {
+        "flowerId": "7",
+        "id": "mum2",
+        "outcome": ["purple"],
+        "flowers": ["white", "white"]
+      },
+      {
+        "flowerId": "7",
+        "id": "mum3",
+        "outcome": ["purple (bred v.1)"],
+        "flowers": ["red", "yellow"]
+      },
+      {
+        "flowerId": "7",
+        "id": "mum4",
+        "outcome": ["purple (bred v.2)"],
+        "flowers": ["yellow2", "yellow2"]
+      },
+      {
+        "flowerId": "7",
+        "id": "mum5",
+        "outcome": ["green"],
+        "flowers": [
+          {
+            "color1": "purple2",
+            "color2": "purple2"
+          },
+          {
+            "color1": "yellow2",
+            "color2": "yellow2"
+          }
+        ]
+      },
+      {
+        "flowerId": "7",
+        "id": "mum6",
+        "outcome": ["yellow (bred)"],
+        "flowers": ["yellow", "red"]
+      }
+    ],
+    "rose": [
+      {
+        "flowerId": "8",
+        "id": "rose1",
+        "outcome": ["pink"],
+        "flowers": ["white", "red"]
+      },
+      {
+        "flowerId": "8",
+        "id": "rose2",
+        "outcome": ["orange"],
+        "flowers": ["yellow", "red"]
+      },
+      {
+        "flowerId": "8",
+        "id": "rose3",
+        "outcome": ["black"],
+        "flowers": ["red", "red"]
+      },
+      {
+        "flowerId": "8",
+        "id": "rose4",
+        "outcome": ["purple"],
+        "flowers": ["white", "white"]
+      },
+      {
+        "flowerId": "8",
+        "id": "rose5",
+        "outcome": ["red (bred)"],
+        "flowers": ["white", "orange"]
+      },
+      {
+        "flowerId": "8",
+        "id": "rose6",
+        "outcome": ["blue"],
+        "flowers": ["red2", "red2"]
+      },
+      {
+        "flowerId": "8",
+        "id": "rose7",
+        "outcome": ["gold"],
+        "flowers": ["black"],
+        "addition": "Golden Watering Can"
+      }
+    ]
+  }
+}
