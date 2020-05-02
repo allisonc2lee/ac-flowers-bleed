@@ -31,8 +31,7 @@ export default {
       selectedColors: [],
       isDisabled: true,
       max: 2,
-      result: "",
-      foundResult: false
+      result: ""
     };
   },
   methods: {
@@ -45,20 +44,24 @@ export default {
           selected = [...selected, color];
         });
 
-        const found = this.outcomes.map((outcome, index) => {
+        this.outcomes.map((outcome, index) => {
           const { flowers } = outcome;
-          console.log(flowers.every(flower => selected.includes(flower)));
-          if (flowers.every(flower => selected.includes(flower))) {
-            return (selectedIndex = index);
+          const flowersString = flowers.sort().toString();
+          const selectedString = selected.sort().toString();
+
+          if (flowersString === selectedString) {
+            selectedIndex = index;
           }
         });
-
-        console.log(found);
-
-        this.result = this.outcomes[selectedIndex].outcome[0];
       }
 
       if (this.selectedColors.length > this.max) {
+        this.result = "";
+      }
+
+      if (selectedIndex !== null) {
+        this.result = this.outcomes[selectedIndex].outcome[0];
+      } else {
         this.result = "";
       }
     }
