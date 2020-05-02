@@ -2,34 +2,14 @@
   <div class>
     <div class="selectedColor" v-if="colors.length > 0">
       <div class="selectedColor-tiles selectedColor-one">
-        <div class v-if="selectColorOne.length > 1">please only select one color</div>
-        <!-- dynamically render color -->
-        <label v-for="{name, colorCode} in colors" :key="colorCode" :for="name">
-          <input type="checkbox" :name="name" :value="name" v-model="selectColorOne" />
-          <span v-if="name === 'red2'">Red (Bred)</span>
-          <span v-else>{{name}}</span>
-          <!--  TODO: SECOND ROW -->
-        </label>
-      </div>
-
-      <div
-        class="selectedColor-tiles selectedColor-two"
-        v-if="selectColorOne.length == 1 || selectColorTwo.length == 1"
-      >
-        <div class v-if="selectColorTwo.length > 1">please only select one color</div>
-        <!-- dynamically render color -->
-        <label v-for="{name, colorCode} in colors" :key="colorCode" :for="name">
-          <input
-            type="checkbox"
-            :name="name"
-            :value="name"
-            v-model="selectColorTwo"
-            @change="filterResultHandler"
-          />
-          <span v-if="name === 'red2'">Red (Bred)</span>
-          <span v-else>{{name}}</span>
-          <!--  TODO: SECOND ROW -->
-        </label>
+        <!-- <div class v-if="selectColorOne.length > 1">please only select one color</div> -->
+        <RadioSelector :colors="colors" radioName="color1" v-on:getCheckVal="getCheckValue1" />
+        <RadioSelector
+          :colors="colors"
+          radioName="color2"
+          v-on:getCheckVal="getCheckValue2"
+          v-if="color1"
+        />
       </div>
     </div>
     <div class="color-result" v-if="selectedColors.length == 2">
@@ -39,13 +19,18 @@
 </template>
 
 <script>
+import RadioSelector from "./RadioSelector";
+
 export default {
   name: "ColorPicker",
+  components: {
+    RadioSelector
+  },
   props: ["colors", "outcomes"],
   data: function() {
     return {
-      selectColorOne: [],
-      selectColorTwo: [],
+      color1: "",
+      color2: "",
       selectedColors: [],
       isDisabled: true,
       max: 2,
@@ -54,10 +39,27 @@ export default {
     };
   },
   methods: {
-    filterResultHandler: function() {
+    getCheckValue1: function(val) {
+      this.color1 = val;
+      if (this.color2) {
+        this.selectedColors = [this.color1, this.color2];
+      }
+
+      if (this.selectedColors.length >= 2) {
+        this.getResult();
+      }
+    },
+    getCheckValue2: function(val) {
+      this.color2 = val;
+      this.selectedColors = [this.color1, this.color2];
+
+      if (this.selectedColors.length >= 2) {
+        this.getResult();
+      }
+    },
+    getResult: function() {
       let selected = [];
       let selectedIndex = null;
-      this.selectedColors = [...this.selectColorOne, ...this.selectColorTwo];
 
       if (this.selectedColors.length === this.max) {
         this.selectedColors.map(color => {

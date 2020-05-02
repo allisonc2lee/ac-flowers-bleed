@@ -1,18 +1,18 @@
 <template>
-  <div class="test-doc">
-    <PickYourFlowers v-bind:flowers="flowers" />
+  <div class="flower-doc">
+    <Flowers v-bind:flowers="flowers" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import PickYourFlowers from "../components/PickYourFlowers";
+import Flowers from "../components/Flowers";
 import flowersData from "../data/flowers.json";
 
 export default {
   name: "Home",
   components: {
-    PickYourFlowers
+    Flowers
   },
   data: function() {
     return {
