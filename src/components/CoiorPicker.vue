@@ -2,7 +2,6 @@
   <div class>
     <div class="selectedColor" v-if="colors.length > 0">
       <div class="selectedColor-tiles selectedColor-one">
-        <!-- <div class v-if="selectColorOne.length > 1">please only select one color</div> -->
         <RadioSelector :items="colors" radioName="color1" v-on:getCheckVal="getCheckValue1" />
         <RadioSelector
           :items="colors"

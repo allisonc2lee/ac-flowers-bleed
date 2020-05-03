@@ -1,34 +1,27 @@
 <template>
   <div class="pick-your-own-flowers">
     <div class="flowers">
-      <label v-for="({name, flowerId}, index) in flowers" :key="flowerId + index" :for="name">
-        <input
-          type="radio"
-          :name="name"
-          :value="name"
-          v-model="selectedFlower"
-          @change="showColors"
-        />
-        <span>image</span>
-      </label>
+      <RadioSelector :items="flowers" radioName="flowerType" v-on:getCheckVal="getFlowerType" />
     </div>
     <!-- COLOR PICKER -->
     <ColorPicker v-bind:colors="this.colors" v-bind:outcomes="outcomes" />
-    <!-- TODO: Render result -->
   </div>
 </template>
 
 <script>
 import ColorPicker from "./CoiorPicker";
+import RadioSelector from "../components/RadioSelector";
 
 export default {
   name: "PickYourFlowers",
   components: {
-    ColorPicker
+    ColorPicker,
+    RadioSelector
   },
   props: ["flowers"],
   data: function() {
     return {
+      type: "",
       colors: [],
       outcomes: [],
       selectedFlower: "",
@@ -41,6 +34,16 @@ export default {
 
       this.flowers.map(({ name, colors, outcome }) => {
         if (name === value) {
+          this.selectedFlower === name;
+          this.colors = colors;
+          this.outcomes = outcome;
+        }
+      });
+    },
+    getFlowerType: function(val) {
+      this.type = val;
+      this.flowers.map(({ name, colors, outcome }) => {
+        if (name === this.type) {
           this.selectedFlower === name;
           this.colors = colors;
           this.outcomes = outcome;
