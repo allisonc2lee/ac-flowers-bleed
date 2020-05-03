@@ -1,5 +1,6 @@
 <template>
   <div class="test-doc">
+    <h3 class="page-title home-page">Try to Bleed</h3>
     <PickYourFlowers v-bind:flowers="flowers" />
   </div>
 </template>

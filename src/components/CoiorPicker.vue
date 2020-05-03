@@ -1,29 +1,49 @@
 <template>
   <div class>
     <div class="selectedColor" v-if="colors.length > 0">
-      <div class="selectedColor-tiles selectedColor-one">
-        <RadioSelector :items="colors" radioName="color1" v-on:getCheckVal="getCheckValue1" />
-        <RadioSelector
-          :items="colors"
-          radioName="color2"
-          v-on:getCheckVal="getCheckValue2"
-          v-if="color1"
-        />
+      <div class="selectedColor-tiles">
+        <div class="selectedColor-tiles-one">
+          <h4>Color 1</h4>
+          <RadioSelector
+            :items="colors"
+            radioName="color1"
+            v-on:getCheckVal="getCheckValue1"
+            :radioType="type"
+            :className="'radio-selector-flex'"
+          />
+        </div>
+        <div class="selectedColor-tiles-two">
+          <h4>Color 2</h4>
+          <RadioSelector
+            :items="colors"
+            radioName="color2"
+            v-on:getCheckVal="getCheckValue2"
+            v-if="color1"
+            :radioType="type"
+            :className="'radio-selector-flex'"
+          />
+        </div>
       </div>
     </div>
     <div class="color-result" v-if="selectedColors.length == 2">
-      <div>{{result}}</div>
+      <div>
+        <h4>Result</h4>
+        <ColorBox :colorStr="result" />
+        <p>{{ result }}</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import RadioSelector from "./RadioSelector";
+import ColorBox from "./ColorBox";
 
 export default {
   name: "ColorPicker",
   components: {
-    RadioSelector
+    RadioSelector,
+    ColorBox
   },
   props: ["colors", "outcomes"],
   data: function() {
@@ -34,7 +54,8 @@ export default {
       isDisabled: true,
       max: 2,
       result: "",
-      moreThanOne: false
+      moreThanOne: false,
+      type: "colorBtn"
     };
   },
   methods: {
@@ -86,5 +107,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

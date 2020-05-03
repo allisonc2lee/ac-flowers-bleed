@@ -2,10 +2,11 @@
   <div class="pick-your-own-flowers">
     <div class="flowers">
       <RadioSelector
+        :className="'radio-selector-flex radio-selector-flex-img'"
         :items="flowers"
         radioName="flowerType"
         v-on:getCheckVal="getFlowerType"
-        :showImage="true"
+        radioType="img"
       />
     </div>
     <!-- COLOR PICKER -->
@@ -59,5 +60,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

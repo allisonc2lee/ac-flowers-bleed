@@ -50,6 +50,7 @@ body {
 
 #nav {
   text-align: center;
+  margin-bottom: 35px;
 }
 
 .nav-link {

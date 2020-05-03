@@ -1,5 +1,6 @@
 <template>
   <div class="flower-doc">
+    <h3 class="page-tilte flower-doc">Look at the Doc</h3>
     <Flowers v-bind:flowers="flowers" />
   </div>
 </template>

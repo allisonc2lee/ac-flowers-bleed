@@ -1,19 +1,27 @@
 <template>
   <div class="flower-item">
     <div class v-for="(item, name) in typeItem" :key="name">
-      <div v-for="(outcome, name2) in item.outcome" :key="name2" class="flower-item-result">
+      <div
+        v-for="(outcome, name2) in item.outcome"
+        :key="name2"
+        class="flower-item-result"
+      >
         <div class="outcome-result">
           <h4>Results</h4>
           <ColorBox :colorStr="outcome.outcome[0]" />
-          <p>{{outcome.outcome[0]}}</p>
+          <p>{{ outcome.outcome[0] }}</p>
           <!-- <span>{{outcome.outcome[0]}}</span> -->
         </div>
         <div v-if="outcome.outcome[0]" class="outcome-flower">
           <!-- <span>{{outcome.flowers}}</span> -->
           <h4>Colors</h4>
-          <div v-for="(flower, name3) in outcome.flowers" :key="name3" class="outcome-flower-color">
+          <div
+            v-for="(flower, name3) in outcome.flowers"
+            :key="name3"
+            class="outcome-flower-color"
+          >
             <ColorBox :colorStr="flower" />
-            <p>{{flower}}</p>
+            <p>{{ flower }}</p>
           </div>
         </div>
       </div>
@@ -44,7 +52,7 @@ export default {
 
 .flower-item-result {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .outcome-result {
