@@ -31,8 +31,7 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "eslint-plugin-vue": "^6.2.2",
-    "prettier": "^1.19.1",
-    "vue-template-compiler": "^2.6.11"
+    "prettier": "^1.19.1"
   },
   "eslintConfig": {
     "root": true,

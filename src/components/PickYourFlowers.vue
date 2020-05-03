@@ -1,7 +1,12 @@
 <template>
   <div class="pick-your-own-flowers">
     <div class="flowers">
-      <RadioSelector :items="flowers" radioName="flowerType" v-on:getCheckVal="getFlowerType" />
+      <RadioSelector
+        :items="flowers"
+        radioName="flowerType"
+        v-on:getCheckVal="getFlowerType"
+        :showImage="true"
+      />
     </div>
     <!-- COLOR PICKER -->
     <ColorPicker v-bind:colors="this.colors" v-bind:outcomes="outcomes" />

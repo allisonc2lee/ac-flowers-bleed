@@ -2,7 +2,13 @@
   <div class="flowers">
     Flower Docs
     <div class="flowers">
-      <RadioSelector :items="flowers" radioName="flowerType" v-on:getCheckVal="getSelectedType" />
+      <RadioSelector
+        :className="'radio-selector-flex'"
+        :items="flowers"
+        radioName="flowerType"
+        v-on:getCheckVal="getSelectedType"
+        :showImage="true"
+      />
     </div>
     <div class>
       <h3 v-if="type">{{type}}</h3>

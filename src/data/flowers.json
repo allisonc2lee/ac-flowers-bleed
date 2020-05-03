@@ -2,6 +2,7 @@
   {
     "flowerId": "1",
     "name": "cosmos",
+    "imgSrc": "../assets/flowers/NH-red_cosmos-icon.png",
     "colors": [
       {
         "name": "red",
@@ -48,6 +49,7 @@
   {
     "flowerId": "2",
     "name": "lily",
+    "imgSrc": "NH-red_lily_icon.png",
     "colors": [
       {
         "name": "red",
@@ -94,6 +96,7 @@
   {
     "flowerId": "3",
     "name": "hyacinth",
+    "imgSrc": "NH-red_hyacinth_icon.png",
     "colors": [
       {
         "name": "red",
@@ -146,6 +149,7 @@
   {
     "flowerId": "4",
     "name": "pansy",
+    "imgSrc": "NH-red_pansy_icon.png",
     "colors": [
       {
         "name": "red",
@@ -206,6 +210,7 @@
   {
     "flowerId": "5",
     "name": "tulip",
+    "imgSrc": "NH-red_tulips-icon.png",
     "colors": [
       {
         "name": "red",
@@ -258,6 +263,7 @@
   {
     "flowerId": "6",
     "name": "mum",
+    "imgSrc": "NH-red_mum-icon.png",
     "colors": [
       {
         "name": "red",
