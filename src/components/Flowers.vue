@@ -14,7 +14,7 @@
       <h3 v-if="type">{{ type }}</h3>
     </div>
     <div class="flower-results" v-if="type">
-      <FlowerItem :typeItem="results" :showResults="showResults" />
+      <FlowerItem :typeItem="results" :showResults="!showResults" />
     </div>
   </div>
 </template>

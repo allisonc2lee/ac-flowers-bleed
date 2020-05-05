@@ -1,6 +1,6 @@
 <template>
   <div class="color-box">
-    <div :style="cssVars" :class="'color-box--color ' + 'colorbox--' + colorStr"></div>
+    <div :class="'color-box--color ' + 'colorbox--' + colorStr"></div>
   </div>
 </template>
 
@@ -16,24 +16,12 @@ export default {
   },
   methods: {},
   computed: {
-    cssVars: function() {
-      return {
-        "--color-red": "#e53935",
-        "--color-white": "#ffffff",
-        "--color-black": "#1f1f1f",
-        "--color-orange": "#ef6c00",
-        "--color-pink": "#ec407a",
-        "--color-purple": "#ab47bc",
-        "--color-green": "#4caf50",
-        "--color-blue": "#03a9f4",
-        "--color-yellow": "#ffeb3b"
-      };
-    }
+
   }
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .color-box {
   margin-right: 10px;
 }
@@ -47,32 +35,38 @@ export default {
 }
 
 .colorbox--red {
-  background: var(--color-red);
+  background: $red;
 }
 
 .colorbox--white {
-  background: var(--color-white);
+  background: $white;
 }
 .colorbox--black {
-  background: var(--color-black);
+  background: $black;
 }
 .colorbox--yellow {
   /* background: var(--color-yellow); */
-  background: #ffeb3b;
+  background: $yellow;
 }
 .colorbox--orange {
-  background: var(--color-orange);
+  background: $orange;
 }
 .colorbox--pink {
-  background: var(--color-pink);
+  background: $pink;
 }
 .colorbox--purple {
-  background: var(--color-purple);
+  background: $purple;
 }
 .colorbox--green {
-  background: var(--color-green);
+  background: $green;
 }
 .colorbox--blue {
-  background: var(--color-blue);
+  background: $blue;
 }
+
+.colorbox--red2 {
+  background: $red;
+  border: 5px solid $yellow;
+}
+
 </style>
