@@ -7,13 +7,14 @@
         radioName="flowerType"
         v-on:getCheckVal="getSelectedType"
         :showImage="true"
+        v-on:click="showResults = !showResults"
       />
     </div>
     <div class>
       <h3 v-if="type">{{ type }}</h3>
     </div>
     <div class="flower-results" v-if="type">
-      <FlowerItem :typeItem="results" />
+      <FlowerItem :typeItem="results" :showResults="showResults" />
     </div>
   </div>
 </template>
@@ -29,7 +30,8 @@ export default {
   data: function() {
     return {
       type: "",
-      results: []
+      results: [],
+      showResults: false
     };
   },
   methods: {

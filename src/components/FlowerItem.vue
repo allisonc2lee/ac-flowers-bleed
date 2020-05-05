@@ -6,12 +6,14 @@
         :key="name2"
         class="flower-item-result"
       >
-        <div class="outcome-result">
-          <h4>Results</h4>
-          <ColorBox :colorStr="outcome.outcome[0]" />
-          <p>{{ outcome.outcome[0] }}</p>
-          <!-- <span>{{outcome.outcome[0]}}</span> -->
-        </div>
+        <transition name="slide-fade">
+          <div class="outcome-result" v-if="showResults">
+            <h4>Results</h4>
+            <ColorBox :colorStr="outcome.outcome[0]" />
+            <p>{{ outcome.outcome[0] }}</p>
+            <!-- <span>{{outcome.outcome[0]}}</span> -->
+          </div>
+        </transition>
         <div v-if="outcome.outcome[0]" class="outcome-flower">
           <!-- <span>{{outcome.flowers}}</span> -->
           <h4>Colors</h4>
@@ -25,7 +27,6 @@
           </div>
         </div>
       </div>
-      <!-- <div v-for="(color, name3) in item.color" :key="name3">{{color}}</div> -->
     </div>
   </div>
 </template>
@@ -38,7 +39,8 @@ export default {
   name: "FlowerItem",
   components: { ColorBox },
   props: {
-    typeItem: Array
+    typeItem: Array,
+    showResults: false
   }
 };
 </script>
@@ -62,5 +64,19 @@ export default {
 .outcome-flower-color {
   display: inline-block;
   justify-content: space-between;
+}
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
 }
 </style>
