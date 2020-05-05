@@ -1,0 +1,334 @@
+@@ -1,333 +0,0 @@
+[
+  {
+    "flowerId": "1",
+    "name": "cosmos",
+    "imgSrc": "../assets/flowers/NH-red_cosmos-icon.png",
+    "colors": [
+      {
+        "name": "red",
+        "colorCode": "#c62828"
+      },
+      {
+        "name": "yellow",
+        "colorCode": "#ffeb3b"
+      },
+      {
+        "name": "orange",
+        "colorCode": "#ff9800"
+      },
+      {
+        "name": "white",
+        "colorCode": "#ffffff"
+      },
+      {
+        "name": "black",
+        "colorCode": "#000000"
+      }
+    ],
+    "outcome": [
+      {
+        "flowerId": "1",
+        "id": "cosmos1",
+        "outcome": ["black"],
+        "flowers": ["orange", "orange"]
+      },
+      {
+        "flowerId": "1",
+        "id": "cosmos2",
+        "outcome": ["pink"],
+        "flowers": ["white", "red"]
+      },
+      {
+        "flowerId": "1",
+        "id": "cosmos3",
+        "outcome": ["orange"],
+        "flowers": ["yellow", "red"]
+      }
+    ]
+  },
+  {
+    "flowerId": "2",
+    "name": "lily",
+    "imgSrc": "NH-red_lily_icon.png",
+    "colors": [
+      {
+        "name": "red",
+        "colorCode": "#c62828"
+      },
+      {
+        "name": "yellow",
+        "colorCode": "#ffeb3b"
+      },
+      {
+        "name": "orange",
+        "colorCode": "#ff9800"
+      },
+      {
+        "name": "white",
+        "colorCode": "#ffffff"
+      },
+      {
+        "name": "black",
+        "colorCode": "#000000"
+      }
+    ],
+    "outcome": [
+      {
+        "flowerId": "2",
+        "id": "lily1",
+        "outcome": ["orange"],
+        "flowers": ["red", "yellow"]
+      },
+      {
+        "flowerId": "2",
+        "id": "lily2",
+        "outcome": ["pink"],
+        "flowers": ["white", "red"]
+      },
+      {
+        "flowerId": "2",
+        "id": "lily3",
+        "outcome": ["black"],
+        "flowers": ["red", "red"]
+      }
+    ]
+  },
+  {
+    "flowerId": "3",
+    "name": "hyacinth",
+    "imgSrc": "NH-red_hyacinth_icon.png",
+    "colors": [
+      {
+        "name": "red",
+        "colorCode": "#c62828"
+      },
+      {
+        "name": "yellow",
+        "colorCode": "#ffeb3b"
+      },
+      {
+        "name": "orange",
+        "colorCode": "#ff9800"
+      },
+      {
+        "name": "blue",
+        "colorCode": "#01579b"
+      },
+      {
+        "name": "purple",
+        "colorCode": "#5e35b1"
+      }
+    ],
+    "outcome": [
+      {
+        "flowerId": "3",
+        "id": "hyacinth1",
+        "outcome": ["orange"],
+        "flowers": ["red", "yellow"]
+      },
+      {
+        "flowerId": "3",
+        "id": "hyacinth2",
+        "outcome": ["pink"],
+        "flowers": ["white", "red"]
+      },
+      {
+        "flowerId": "3",
+        "id": "hyacinth3",
+        "outcome": ["blue"],
+        "flowers": ["white", "white"]
+      },
+      {
+        "flowerId": "3",
+        "id": "hyacinth4",
+        "outcome": ["purple"],
+        "flowers": ["orange", "orange"]
+      }
+    ]
+  },
+  {
+    "flowerId": "4",
+    "name": "pansy",
+    "imgSrc": "NH-red_pansy_icon.png",
+    "colors": [
+      {
+        "name": "red",
+        "colorCode": "#c62828"
+      },
+      {
+        "name": "yellow",
+        "colorCode": "#ffeb3b"
+      },
+      {
+        "name": "orange",
+        "colorCode": "#ff9800"
+      },
+      {
+        "name": "white",
+        "colorCode": "#ffffff"
+      },
+      {
+        "name": "blue",
+        "colorCode": "#01579b"
+      },
+      {
+        "name": "purple",
+        "colorCode": "#5e35b1"
+      },
+      {
+        "name": "red2",
+        "colorCode": "#c62828"
+      }
+    ],
+    "outcome": [
+      {
+        "flowerId": "4",
+        "id": "pansy1",
+        "outcome": ["orange"],
+        "flowers": ["red", "yellow"]
+      },
+      {
+        "flowerId": "4",
+        "id": "pansy2",
+        "outcome": ["blue"],
+        "flowers": ["white", "white"]
+      },
+      {
+        "flowerId": "4",
+        "id": "pansy3",
+        "outcome": ["red (bred)"],
+        "flowers": ["red", "blue"]
+      },
+      {
+        "flowerId": "4",
+        "id": "pansy4",
+        "outcome": ["purple"],
+        "flowers": ["red2", "red2"]
+      }
+    ]
+  },
+  {
+    "flowerId": "5",
+    "name": "tulip",
+    "imgSrc": "NH-red_tulips-icon.png",
+    "colors": [
+      {
+        "name": "red",
+        "colorCode": "#c62828"
+      },
+      {
+        "name": "yellow",
+        "colorCode": "#ffeb3b"
+      },
+      {
+        "name": "orange",
+        "colorCode": "#ff9800"
+      },
+      {
+        "name": "white",
+        "colorCode": "#ffffff"
+      },
+      {
+        "name": "black",
+        "colorCode": "#000000"
+      }
+    ],
+    "outcome": [
+      {
+        "flowerId": "5",
+        "id": "tulip1",
+        "outcome": ["orange"],
+        "flowers": ["red", "yellow"]
+      },
+      {
+        "flowerId": "5",
+        "id": "tulip2",
+        "outcome": ["pink"],
+        "flowers": ["red", "white"]
+      },
+      {
+        "flowerId": "5",
+        "id": "tulip3",
+        "outcome": ["black"],
+        "flowers": ["red", "red"]
+      },
+      {
+        "flowerId": "5",
+        "id": "tulip4",
+        "outcome": ["purple"],
+        "flowers": ["orange", "orange"]
+      }
+    ]
+  },
+  {
+    "flowerId": "6",
+    "name": "mum",
+    "imgSrc": "NH-red_mum-icon.png",
+    "colors": [
+      {
+        "name": "red",
+        "colorCode": "#c62828"
+      },
+      {
+        "name": "yellow",
+        "colorCode": "#ffeb3b"
+      },
+      {
+        "name": "white",
+        "colorCode": "#ffffff"
+      },
+      {
+        "name": "purple",
+        "colorCode": "#5e35b1"
+      }
+    ],
+    "outcome": [
+      {
+        "flowerId": "7",
+        "id": "mum1",
+        "outcome": ["pink"],
+        "flowers": ["red", "white"]
+      },
+      {
+        "flowerId": "7",
+        "id": "mum2",
+        "outcome": ["purple"],
+        "flowers": ["white", "white"]
+      },
+      {
+        "flowerId": "7",
+        "id": "mum3",
+        "outcome": ["purple (bred v.1)"],
+        "flowers": ["red", "yellow"]
+      },
+      {
+        "flowerId": "7",
+        "id": "mum4",
+        "outcome": ["purple (bred v.2)"],
+        "flowers": ["yellow2", "yellow2"]
+      },
+      {
+        "flowerId": "7",
+        "id": "mum5",
+        "outcome": ["green"],
+        "flowers": [
+          {
+            "color1": "purple2",
+            "color2": "purple2"
+          },
+          {
+            "color1": "yellow2",
+            "color2": "yellow2"
+          }
+        ]
+      },
+      {
+        "flowerId": "7",
+        "id": "mum6",
+        "outcome": ["yellow (bred)"],
+        "flowers": ["yellow", "red"]
+      }
+    ]
+  }
+]
