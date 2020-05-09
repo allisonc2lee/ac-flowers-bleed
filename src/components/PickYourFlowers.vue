@@ -5,12 +5,15 @@
         :className="'radio-selector-flex radio-selector-flex-img'"
         :items="flowers"
         radioName="flowerType"
+        v-on:toggleAnimation="toggleAnimation"
         v-on:getCheckVal="getFlowerType"
         radioType="img"
       />
     </div>
     <!-- COLOR PICKER -->
-    <ColorPicker v-bind:colors="this.colors" v-bind:outcomes="outcomes" />
+    <transition name="component-fade" mode="out-in">
+      <ColorPicker :colors="colors" :outcomes="outcomes" v-if="isShowing" />
+    </transition>
   </div>
 </template>
 
@@ -31,21 +34,11 @@ export default {
       colors: [],
       outcomes: [],
       selectedFlower: "",
-      selectedColors: []
+      selectedColors: [],
+      isShowing: false
     };
   },
   methods: {
-    showColors: function(event) {
-      const { value } = event.target;
-
-      this.flowers.map(({ name, colors, outcome }) => {
-        if (name === value) {
-          this.selectedFlower === name;
-          this.colors = colors;
-          this.outcomes = outcome;
-        }
-      });
-    },
     getFlowerType: function(val) {
       this.type = val;
       this.flowers.map(({ name, colors, outcome }) => {
@@ -55,9 +48,21 @@ export default {
           this.outcomes = outcome;
         }
       });
+    },
+    toggleAnimation: function(isShow) {
+      this.isShowing = isShow;
     }
   }
 };
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.component-fade-enter-active,
+.component-fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.component-fade-enter,
+.component-fade-leave-to {
+  opacity: 0;
+}
+</style>

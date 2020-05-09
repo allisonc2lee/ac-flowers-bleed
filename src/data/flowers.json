@@ -2,7 +2,7 @@
   {
     "flowerId": "1",
     "name": "cosmos",
-    "imgSrc": "../assets/flowers/NH-red_cosmos-icon.png",
+    "imgSrc": "https://vignette.wikia.nocookie.net/animalcrossing/images/7/7a/NH-red_cosmos-icon.png/revision/latest?cb=20200414010628",
     "colors": [
       {
         "name": "red",
@@ -49,7 +49,7 @@
   {
     "flowerId": "2",
     "name": "lily",
-    "imgSrc": "NH-red_lily_icon.png",
+    "imgSrc": "https://vignette.wikia.nocookie.net/animalcrossing/images/5/57/NH-red_lily_icon.png/revision/latest?cb=20200407141910",
     "colors": [
       {
         "name": "red",
@@ -96,7 +96,7 @@
   {
     "flowerId": "3",
     "name": "hyacinth",
-    "imgSrc": "NH-red_hyacinth_icon.png",
+    "imgSrc": "https://vignette.wikia.nocookie.net/animalcrossing/images/9/91/NH-red_hyacinth_icon.png/revision/latest?cb=20200407141905",
     "colors": [
       {
         "name": "red",
@@ -149,7 +149,7 @@
   {
     "flowerId": "4",
     "name": "pansy",
-    "imgSrc": "NH-red_pansy_icon.png",
+    "imgSrc": "https://vignette.wikia.nocookie.net/animalcrossing/images/2/23/NH-red_pansy_icon.png/revision/latest?cb=20200407141918",
     "colors": [
       {
         "name": "red",
@@ -210,7 +210,7 @@
   {
     "flowerId": "5",
     "name": "tulip",
-    "imgSrc": "NH-red_tulips-icon.png",
+    "imgSrc": "https://vignette.wikia.nocookie.net/animalcrossing/images/2/23/NH-red_pansy_icon.png/revision/latest?cb=20200407141918",
     "colors": [
       {
         "name": "red",
@@ -263,7 +263,7 @@
   {
     "flowerId": "6",
     "name": "mum",
-    "imgSrc": "NH-red_mum-icon.png",
+    "imgSrc": "https://vignette.wikia.nocookie.net/animalcrossing/images/1/14/NH-red_mum_icon.png/revision/latest?cb=20200407141914",
     "colors": [
       {
         "name": "red",

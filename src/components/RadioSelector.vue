@@ -11,19 +11,14 @@
           :name="radioName"
           :value="name"
           v-model="setected"
-          @change="emitChecked"
+          @change="emitChecked($event, setected)"
         />
-        <img
-          v-if="radioType === 'img'"
-          :src="imgSrc"
-          :alt="name"
-          class="radio-image-button"
-        />
+        <img v-if="radioType === 'img'" :src="imgSrc" :alt="name" class="radio-image-button" />
         <div class="radio-color-picker" v-if="radioType === 'colorBtn'">
-          <ColorBox :colorStr="name" />
+          <ColorBox :colorStr="name" :setected="setected" :isShowing="isShowing" />
         </div>
       </label>
-      <div class="">
+      <div class>
         <p v-if="name === 'red2'">Red (Bred)</p>
         <p v-else>{{ name }}</p>
       </div>
@@ -57,12 +52,28 @@ export default {
   },
   data: function() {
     return {
-      setected: ""
+      setected: "",
+      isShowing: false,
+      activeAnimation: true
     };
   },
   methods: {
-    emitChecked: function(setected) {
+    emitChecked: function(event, selected) {
+      var targetVal = event.target.value;
+      // console.log(`targetVal ${targetVal} | selected ${this.setected}`);
+
+      this.isShowing = !this.isShowing;
+      console.log("boom");
       this.$emit("getCheckVal", this.setected);
+      this.$emit("toggleAnimation", this.isShowing);
+    }
+  },
+  watch: {
+    setected: function(newVal, oldVal) {
+      if (newVal != oldVal) {
+        console.log("value changed from " + oldVal + " to " + newVal);
+        this.isShowing = !this.isShowing;
+      }
     }
   }
 };

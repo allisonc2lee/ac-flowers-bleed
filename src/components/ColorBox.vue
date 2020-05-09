@@ -1,5 +1,5 @@
 <template>
-  <div class="color-box">
+  <div :class="{activeAnimation: !isShowing}" class="color-box">
     <div :class="'color-box--color ' + 'colorbox--' + colorStr"></div>
   </div>
 </template>
@@ -9,15 +9,14 @@ export default {
   name: "ColorBox",
   props: {
     hexCode: String,
-    colorStr: String
+    colorStr: String,
+    isShowing: false
   },
   data: function() {
     return {};
   },
   methods: {},
-  computed: {
-
-  }
+  computed: {}
 };
 </script>
 
@@ -26,9 +25,14 @@ export default {
   margin-right: 10px;
 }
 
+.color-result .color-box {
+  width: 40px;
+  height: 40px;
+}
+
 .color-box--color {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
   position: relative;
   box-shadow: 2px 4px 2px 1px rgba(207, 207, 207, 1);
@@ -69,4 +73,19 @@ export default {
   border: 5px solid $yellow;
 }
 
+.activeAnimation {
+  animation: bounce-in 0.6s;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 </style>

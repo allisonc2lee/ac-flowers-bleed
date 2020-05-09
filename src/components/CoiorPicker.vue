@@ -5,20 +5,19 @@
         <div class="selectedColor-tiles-one">
           <h4>Color 1</h4>
           <RadioSelector
-            :items="colors"
             radioName="color1"
-            v-on:getCheckVal="getCheckValue1"
+            :items="colors"
             :radioType="type"
             :className="'radio-selector-flex'"
+            v-on:getCheckVal="getCheckValue1"
           />
         </div>
-        <div class="selectedColor-tiles-two">
+        <div class="selectedColor-tiles-two" v-if="color1">
           <h4>Color 2</h4>
           <RadioSelector
             :items="colors"
             radioName="color2"
             v-on:getCheckVal="getCheckValue2"
-            v-if="color1"
             :radioType="type"
             :className="'radio-selector-flex'"
           />
@@ -28,7 +27,7 @@
     <div class="color-result" v-if="selectedColors.length == 2">
       <div>
         <h4>Result</h4>
-        <ColorBox :colorStr="result" />
+        <ColorBox :colorStr="result" v-if="foundResult" />
         <p>{{ result }}</p>
       </div>
     </div>
@@ -45,7 +44,16 @@ export default {
     RadioSelector,
     ColorBox
   },
-  props: ["colors", "outcomes"],
+  props: {
+    colors: {
+      type: Array,
+      default: []
+    },
+    outcomes: {
+      type: Array,
+      default: []
+    }
+  },
   data: function() {
     return {
       color1: "",
@@ -55,7 +63,8 @@ export default {
       max: 2,
       result: "",
       moreThanOne: false,
-      type: "colorBtn"
+      type: "colorBtn",
+      foundResult: false
     };
   },
   methods: {
@@ -99,12 +108,15 @@ export default {
       }
       if (selectedIndex !== null) {
         this.result = this.outcomes[selectedIndex].outcome[0];
+        this.foundResult = true;
       } else {
         this.result = "It won't breed. Please try again";
+        this.foundResult = false;
       }
     }
   }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>

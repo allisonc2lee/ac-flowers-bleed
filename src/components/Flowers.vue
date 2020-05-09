@@ -6,15 +6,15 @@
         :items="flowers"
         radioName="flowerType"
         v-on:getCheckVal="getSelectedType"
+        v-on:toggleAnimation="toggleAnimation"
         :showImage="true"
-        v-on:click="showResults = !showResults"
       />
     </div>
     <div class>
       <h3 v-if="type">{{ type }}</h3>
     </div>
     <div class="flower-results" v-if="type">
-      <FlowerItem :typeItem="results" :showResults="!showResults" />
+      <FlowerItem :typeItem="results" :showResults="!showResults" :isShowing="isShowing" />
     </div>
   </div>
 </template>
@@ -31,13 +31,18 @@ export default {
     return {
       type: "",
       results: [],
-      showResults: false
+      showResults: false,
+      bounceAnimation: {},
+      isShowing: false
     };
   },
   methods: {
     getSelectedType: function(val) {
       this.type = val;
       this.results = this.flowers.filter(({ name }) => name === this.type);
+    },
+    toggleAnimation: function(show) {
+      this.isShowing = show;
     }
   }
 };
