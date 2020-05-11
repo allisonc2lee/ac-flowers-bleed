@@ -5,53 +5,55 @@
         :className="'radio-selector-flex radio-selector-flex-img'"
         :items="flowers"
         radioName="flowerType"
-        v-on:toggleAnimation="toggleAnimation"
         v-on:getCheckVal="getFlowerType"
         radioType="img"
       />
     </div>
     <!-- COLOR PICKER -->
     <transition name="component-fade" mode="out-in">
-      <ColorPicker :colors="colors" :outcomes="outcomes" v-if="isShowing" />
+      <ColorPicker
+        :colors="state.colors"
+        :outcomes="state.outcomes"
+        :flowerType="state.type"
+      />
     </transition>
   </div>
 </template>
 
 <script>
-import ColorPicker from "./CoiorPicker";
-import RadioSelector from "../components/RadioSelector";
+import ColorPicker from './CoiorPicker';
+import RadioSelector from '../components/RadioSelector';
+import { reactive } from '@vue/composition-api';
+import { useToggleAnimation } from '../cmp-functions/toggleAnimation';
 
 export default {
-  name: "PickYourFlowers",
+  name: 'PickYourFlowers',
   components: {
     ColorPicker,
     RadioSelector
   },
-  props: ["flowers"],
-  data: function() {
-    return {
-      type: "",
+  props: ['flowers'],
+  setup({ flowers }) {
+    const state = reactive({
+      type: '',
       colors: [],
       outcomes: [],
-      selectedFlower: "",
       selectedColors: [],
-      isShowing: false
-    };
-  },
-  methods: {
-    getFlowerType: function(val) {
-      this.type = val;
-      this.flowers.map(({ name, colors, outcome }) => {
-        if (name === this.type) {
-          this.selectedFlower === name;
-          this.colors = colors;
-          this.outcomes = outcome;
+      selectedFlower: ''
+    });
+
+    const getFlowerType = val => {
+      state.type = val;
+      flowers.map(({ name, colors, outcome }) => {
+        if (name === state.type) {
+          state.selectedFlower === name;
+          state.colors = colors;
+          state.outcomes = outcome;
         }
       });
-    },
-    toggleAnimation: function(isShow) {
-      this.isShowing = isShow;
-    }
+    };
+
+    return { state, getFlowerType };
   }
 };
 </script>

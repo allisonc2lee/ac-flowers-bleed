@@ -6,44 +6,46 @@
         :items="flowers"
         radioName="flowerType"
         v-on:getCheckVal="getSelectedType"
-        v-on:toggleAnimation="toggleAnimation"
         :showImage="true"
       />
     </div>
     <div class>
-      <h3 v-if="type">{{ type }}</h3>
+      <h3 v-if="state.type">{{ state.type }}</h3>
     </div>
-    <div class="flower-results" v-if="type">
-      <FlowerItem :typeItem="results" :showResults="!showResults" :isShowing="isShowing" />
+    <div class="flower-results" v-if="state.type">
+      <FlowerItem
+        :typeItem="state.results"
+        :showResults="!state.showResults"
+        :type="state.type"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import RadioSelector from "./RadioSelector";
-import FlowerItem from "./FlowerItem";
+import RadioSelector from './RadioSelector';
+import FlowerItem from './FlowerItem';
+import { reactive, ref } from '@vue/composition-api';
+import { useToggleAnimation } from '../cmp-functions/toggleAnimation';
 
 export default {
-  names: "Flowers",
+  names: 'Flowers',
   components: { RadioSelector, FlowerItem },
-  props: ["flowers"],
-  data: function() {
-    return {
-      type: "",
+  props: ['flowers'],
+  setup(props) {
+    const { flowers } = props;
+    const state = reactive({
+      type: '',
       results: [],
-      showResults: false,
-      bounceAnimation: {},
-      isShowing: false
+      showResults: false
+    });
+
+    const getSelectedType = val => {
+      state.type = val;
+      state.results = flowers.filter(({ name }) => name === state.type);
     };
-  },
-  methods: {
-    getSelectedType: function(val) {
-      this.type = val;
-      this.results = this.flowers.filter(({ name }) => name === this.type);
-    },
-    toggleAnimation: function(show) {
-      this.isShowing = show;
-    }
+
+    return { state, getSelectedType };
   }
 };
 </script>

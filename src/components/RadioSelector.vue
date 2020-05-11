@@ -8,14 +8,25 @@
       <label class="radio-selector-img">
         <input
           type="radio"
+          :checked="state.radio === state.selected"
           :name="radioName"
           :value="name"
-          v-model="setected"
-          @change="emitChecked($event, setected)"
+          v-model="state.setected"
+          @change="emitChecked"
         />
-        <img v-if="radioType === 'img'" :src="imgSrc" :alt="name" class="radio-image-button" />
+        <img
+          v-if="radioType === 'img'"
+          :src="imgSrc"
+          :alt="name"
+          class="radio-image-button"
+        />
         <div class="radio-color-picker" v-if="radioType === 'colorBtn'">
-          <ColorBox :colorStr="name" :setected="setected" :isShowing="isShowing" />
+          <ColorBox
+            :colorStr="name"
+            :setected="state.setected"
+            :isShowing="state.isShowing"
+            :type="flowerType"
+          />
         </div>
       </label>
       <div class>
@@ -27,11 +38,32 @@
 </template>
 
 <script>
-import ColorBox from "./ColorBox";
+import { reactive } from '@vue/composition-api';
+import ColorBox from './ColorBox';
 
 export default {
-  name: "RadioSelector",
+  name: 'RadioSelector',
   components: { ColorBox },
+  setup(props, { emit }) {
+    const state = reactive({
+      setected: '',
+      isShowing: false,
+      radio: ''
+    });
+
+    const emitChecked = ({ target }) => {
+      let targetVal = target.value;
+      state.isShowing = !state.isShowing;
+      emit('getCheckVal', state.setected);
+      emit('toggleAnimation', state.isShowing);
+      state.radio = target.value;
+    };
+
+    return {
+      state,
+      emitChecked
+    };
+  },
   props: {
     items: {
       type: Array,
@@ -47,33 +79,11 @@ export default {
     },
     radioType: {
       type: String,
-      default: "img"
-    }
-  },
-  data: function() {
-    return {
-      setected: "",
-      isShowing: false,
-      activeAnimation: true
-    };
-  },
-  methods: {
-    emitChecked: function(event, selected) {
-      var targetVal = event.target.value;
-      // console.log(`targetVal ${targetVal} | selected ${this.setected}`);
-
-      this.isShowing = !this.isShowing;
-      console.log("boom");
-      this.$emit("getCheckVal", this.setected);
-      this.$emit("toggleAnimation", this.isShowing);
-    }
-  },
-  watch: {
-    setected: function(newVal, oldVal) {
-      if (newVal != oldVal) {
-        console.log("value changed from " + oldVal + " to " + newVal);
-        this.isShowing = !this.isShowing;
-      }
+      default: 'img'
+    },
+    flowerType: {
+      type: String,
+      required: true
     }
   }
 };

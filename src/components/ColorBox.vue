@@ -1,22 +1,17 @@
 <template>
-  <div :class="{activeAnimation: !isShowing}" class="color-box">
+  <div :class="{ activeAnimation: type }" class="color-box" :key="type">
     <div :class="'color-box--color ' + 'colorbox--' + colorStr"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "ColorBox",
+  name: 'ColorBox',
   props: {
     hexCode: String,
     colorStr: String,
-    isShowing: false
-  },
-  data: function() {
-    return {};
-  },
-  methods: {},
-  computed: {}
+    type: false
+  }
 };
 </script>
 

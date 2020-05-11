@@ -10,6 +10,7 @@
             :radioType="type"
             :className="'radio-selector-flex'"
             v-on:getCheckVal="getCheckValue1"
+            :flowerType="flowerType"
           />
         </div>
         <div class="selectedColor-tiles-two" v-if="color1">
@@ -20,6 +21,7 @@
             v-on:getCheckVal="getCheckValue2"
             :radioType="type"
             :className="'radio-selector-flex'"
+            :flowerType="flowerType"
           />
         </div>
       </div>
@@ -27,7 +29,7 @@
     <div class="color-result" v-if="selectedColors.length == 2">
       <div>
         <h4>Result</h4>
-        <ColorBox :colorStr="result" v-if="foundResult" />
+        <ColorBox :colorStr="result" v-if="foundResult" :type="flowerType" />
         <p>{{ result }}</p>
       </div>
     </div>
@@ -35,11 +37,11 @@
 </template>
 
 <script>
-import RadioSelector from "./RadioSelector";
-import ColorBox from "./ColorBox";
+import RadioSelector from './RadioSelector';
+import ColorBox from './ColorBox';
 
 export default {
-  name: "ColorPicker",
+  name: 'ColorPicker',
   components: {
     RadioSelector,
     ColorBox
@@ -52,18 +54,22 @@ export default {
     outcomes: {
       type: Array,
       default: []
+    },
+    flowerType: {
+      type: String,
+      required: true
     }
   },
   data: function() {
     return {
-      color1: "",
-      color2: "",
+      color1: '',
+      color2: '',
       selectedColors: [],
       isDisabled: true,
       max: 2,
-      result: "",
+      result: '',
       moreThanOne: false,
-      type: "colorBtn",
+      type: 'colorBtn',
       foundResult: false
     };
   },
@@ -104,7 +110,7 @@ export default {
         });
       }
       if (this.selectedColors.length > this.max) {
-        this.result = "";
+        this.result = '';
       }
       if (selectedIndex !== null) {
         this.result = this.outcomes[selectedIndex].outcome[0];
@@ -118,5 +124,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
