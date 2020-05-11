@@ -32,7 +32,12 @@ export default {
     ColorPicker,
     RadioSelector
   },
-  props: ['flowers'],
+  props: {
+    flowers: {
+      type: Array,
+      default: () => []
+    }
+  },
   setup({ flowers }) {
     const state = reactive({
       type: '',

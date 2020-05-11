@@ -12,11 +12,11 @@
     <div class>
       <h3 v-if="state.type">{{ state.type }}</h3>
     </div>
-    <div class="flower-results" v-if="state.type">
+    <div class="flower-results" v-if="state.flowerType">
       <FlowerItem
         :typeItem="state.results"
         :showResults="!state.showResults"
-        :type="state.type"
+        :flowerType="state.flowerType"
       />
     </div>
   </div>
@@ -35,14 +35,14 @@ export default {
   setup(props) {
     const { flowers } = props;
     const state = reactive({
-      type: '',
+      flowerType: '',
       results: [],
       showResults: false
     });
 
     const getSelectedType = val => {
-      state.type = val;
-      state.results = flowers.filter(({ name }) => name === state.type);
+      state.flowerType = val;
+      state.results = flowers.filter(({ name }) => name === state.flowerType);
     };
 
     return { state, getSelectedType };

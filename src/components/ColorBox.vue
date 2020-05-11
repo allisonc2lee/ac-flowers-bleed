@@ -1,5 +1,9 @@
 <template>
-  <div :class="{ activeAnimation: type }" class="color-box" :key="type">
+  <div
+    :class="{ activeAnimation: flowerType }"
+    class="color-box"
+    :key="flowerType"
+  >
     <div :class="'color-box--color ' + 'colorbox--' + colorStr"></div>
   </div>
 </template>
@@ -10,7 +14,7 @@ export default {
   props: {
     hexCode: String,
     colorStr: String,
-    type: false
+    flowerType: false
   }
 };
 </script>

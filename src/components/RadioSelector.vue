@@ -25,7 +25,7 @@
             :colorStr="name"
             :setected="state.setected"
             :isShowing="state.isShowing"
-            :type="flowerType"
+            :flowerType="flowerType"
           />
         </div>
       </label>
@@ -83,7 +83,7 @@ export default {
     },
     flowerType: {
       type: String,
-      required: true
+      default: ''
     }
   }
 };
@@ -93,7 +93,6 @@ export default {
 .radio-selector-flex {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
 }
 
 .radio-selector-flex-img .radio-selector-wrapper {

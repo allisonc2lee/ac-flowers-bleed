@@ -29,7 +29,11 @@
     <div class="color-result" v-if="selectedColors.length == 2">
       <div>
         <h4>Result</h4>
-        <ColorBox :colorStr="result" v-if="foundResult" :type="flowerType" />
+        <ColorBox
+          :colorStr="result"
+          v-if="foundResult"
+          :flowerType="flowerType"
+        />
         <p>{{ result }}</p>
       </div>
     </div>
@@ -49,11 +53,11 @@ export default {
   props: {
     colors: {
       type: Array,
-      default: []
+      default: () => []
     },
     outcomes: {
       type: Array,
-      default: []
+      default: () => []
     },
     flowerType: {
       type: String,

@@ -8,9 +8,9 @@
       >
         <div class="outcome-result" v-if="showResults">
           <h4>Results</h4>
-          <ColorBox :colorStr="outcome.outcome[0]" :type="type" />
+          <ColorBox :colorStr="outcome.outcome[0]" :flowerType="flowerType" />
           <transition name="slide-fade">
-            <p>{{ outcome.outcome[0] }}</p>
+            <p :key="flowerType">{{ outcome.outcome[0] }}</p>
           </transition>
         </div>
         <div v-if="outcome.outcome[0]" class="outcome-flower">
@@ -20,8 +20,8 @@
             :key="name3"
             class="outcome-flower-color"
           >
-            <ColorBox :colorStr="flower" :type="type" />
-            <transition name="slide-fade">
+            <ColorBox :colorStr="flower" :flowerType="flowerType" />
+            <transition name="slide-fade" :key="flowerType">
               <p>{{ flower }}</p>
             </transition>
           </div>
@@ -41,13 +41,13 @@ export default {
   props: {
     typeItem: {
       type: Array,
-      default: []
+      default: () => []
     },
     showResults: {
       type: Boolean,
       default: false
     },
-    type: {
+    flowerType: {
       type: String,
       required: true
     }
