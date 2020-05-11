@@ -24,7 +24,6 @@
 import ColorPicker from './CoiorPicker';
 import RadioSelector from '../components/RadioSelector';
 import { reactive } from '@vue/composition-api';
-import { useToggleAnimation } from '../cmp-functions/toggleAnimation';
 
 export default {
   name: 'PickYourFlowers',

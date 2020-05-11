@@ -7,34 +7,33 @@
           <RadioSelector
             radioName="color1"
             :items="colors"
-            :radioType="type"
+            :radioType="state.type"
             :className="'radio-selector-flex'"
-            v-on:getCheckVal="getCheckValue1"
+            v-on:getCheckedName="getCheckedValue"
             :flowerType="flowerType"
           />
         </div>
-        <div class="selectedColor-tiles-two" v-if="color1">
+        <div
+          class="selectedColor-tiles-two"
+          v-if="state.selectedColors.length >= 1"
+        >
           <h4>Color 2</h4>
           <RadioSelector
             :items="colors"
             radioName="color2"
-            v-on:getCheckVal="getCheckValue2"
-            :radioType="type"
+            v-on:getCheckedName="getCheckedValue"
+            :radioType="state.type"
             :className="'radio-selector-flex'"
             :flowerType="flowerType"
           />
         </div>
       </div>
     </div>
-    <div class="color-result" v-if="selectedColors.length == 2">
+    <div class="color-result" v-if="state.selectedColors.length == 2">
       <div>
         <h4>Result</h4>
-        <ColorBox
-          :colorStr="result"
-          v-if="foundResult"
-          :flowerType="flowerType"
-        />
-        <p>{{ result }}</p>
+        <ColorBox :colorStr="state.result" :flowerType="flowerType" />
+        <p>{{ state.result }}</p>
       </div>
     </div>
   </div>
@@ -43,6 +42,7 @@
 <script>
 import RadioSelector from './RadioSelector';
 import ColorBox from './ColorBox';
+import { reactive } from '@vue/composition-api';
 
 export default {
   name: 'ColorPicker',
@@ -64,47 +64,25 @@ export default {
       required: true
     }
   },
-  data: function() {
-    return {
-      color1: '',
-      color2: '',
+  setup(props) {
+    const state = reactive({
       selectedColors: [],
       isDisabled: true,
-      max: 2,
       result: '',
       moreThanOne: false,
       type: 'colorBtn',
       foundResult: false
-    };
-  },
-  methods: {
-    getCheckValue1: function(val) {
-      this.color1 = val;
-      if (this.color2) {
-        this.selectedColors = [this.color1, this.color2];
-      }
+    });
 
-      if (this.selectedColors.length >= 2) {
-        this.getResult();
-      }
-    },
-    getCheckValue2: function(val) {
-      this.color2 = val;
-      this.selectedColors = [this.color1, this.color2];
-
-      if (this.selectedColors.length >= 2) {
-        this.getResult();
-      }
-    },
-    getResult: function() {
+    const getResult = () => {
+      let max = 2;
       let selected = [];
       let selectedIndex = null;
-
-      if (this.selectedColors.length === this.max) {
-        this.selectedColors.map(color => {
+      if (state.selectedColors.length === max) {
+        state.selectedColors.map(color => {
           selected = [...selected, color];
         });
-        this.outcomes.map((outcome, index) => {
+        props.outcomes.map((outcome, index) => {
           const { flowers } = outcome;
           const flowersString = flowers.sort().toString();
           const selectedString = selected.sort().toString();
@@ -113,17 +91,36 @@ export default {
           }
         });
       }
-      if (this.selectedColors.length > this.max) {
-        this.result = '';
+      if (state.selectedColors.length > max) {
+        state.result = '';
       }
       if (selectedIndex !== null) {
-        this.result = this.outcomes[selectedIndex].outcome[0];
-        this.foundResult = true;
+        return (state.result = props.outcomes[selectedIndex].outcome[0]);
       } else {
-        this.result = "It won't breed. Please try again";
-        this.foundResult = false;
+        return (state.result = "It won't breed. Please try again");
       }
-    }
+    };
+
+    const getCheckedValue = target => {
+      const { name, value } = target;
+
+      if (state.selectedColors.length < 2) {
+        state.selectedColors = [...state.selectedColors, value];
+      } else {
+        if (target.name === 'color1') {
+          state.selectedColors[0] = target.value;
+        }
+
+        if (target.name === 'color2') {
+          state.selectedColors[1] = target.value;
+        }
+      }
+
+      if (state.selectedColors.length >= 2) {
+        getResult();
+      }
+    };
+    return { state, getCheckedValue };
   }
 };
 </script>

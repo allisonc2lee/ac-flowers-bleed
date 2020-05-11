@@ -24,7 +24,6 @@
           <ColorBox
             :colorStr="name"
             :setected="state.setected"
-            :isShowing="state.isShowing"
             :flowerType="flowerType"
           />
         </div>
@@ -46,17 +45,13 @@ export default {
   components: { ColorBox },
   setup(props, { emit }) {
     const state = reactive({
-      setected: '',
-      isShowing: false,
-      radio: ''
+      setected: ''
     });
 
     const emitChecked = ({ target }) => {
       let targetVal = target.value;
-      state.isShowing = !state.isShowing;
       emit('getCheckVal', state.setected);
-      emit('toggleAnimation', state.isShowing);
-      state.radio = target.value;
+      emit('getCheckedName', target);
     };
 
     return {

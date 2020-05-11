@@ -25,8 +25,7 @@
 <script>
 import RadioSelector from './RadioSelector';
 import FlowerItem from './FlowerItem';
-import { reactive, ref } from '@vue/composition-api';
-import { useToggleAnimation } from '../cmp-functions/toggleAnimation';
+import { reactive } from '@vue/composition-api';
 
 export default {
   names: 'Flowers',
@@ -41,7 +40,7 @@ export default {
     });
 
     const getSelectedType = val => {
-      state.flowerType = val;
+      state.flowerType = val.value;
       state.results = flowers.filter(({ name }) => name === state.flowerType);
     };
 
